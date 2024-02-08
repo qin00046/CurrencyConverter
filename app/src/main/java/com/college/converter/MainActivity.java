@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.util.Log;
 
 /*
     TODOs:
@@ -24,9 +25,10 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     static private final Float CONVERSION_RATE = 0.80F;
-
+    private static String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.i(TAG, "Entering onCreate()");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,9 +37,11 @@ public class MainActivity extends AppCompatActivity {
         buttonConvert.setOnClickListener( view ->  {
             convertCurrency(view);
         } );
+        Log.i(TAG, "Exiting onCreate()");
     }
 
     public void convertCurrency(View view) {
+        Log.i(TAG, "Entering convertCurrency()");
 
         EditText inputView = findViewById(R.id.entryId);
 
@@ -52,5 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
             resultView.setText(getString(R.string.result_euros, resultFloat));
         }
+        Log.i(TAG, "Exiting convertCurrency()");
     }
 }
